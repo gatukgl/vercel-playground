@@ -28,4 +28,4 @@ jobs:
         run: |
           vercel deploy --prod --skip-domain --token=ZEiemkwfGZkYndzD1W39M2jG --force --with-cache > deployment-url.txt
           deploymentUrl=`cat deployment-url.txt`
-          vercel alias set  $deploymentUrl vercel-playground-qa.gatukgl.com --token=ZEiemkwfGZkYndzD1W39M2jG --scope=team_6XLvA0mT8Dmx240AOjTf8tRE
+          vercel alias set vercel-playground-qa.gatukgl.com $deploymentUrl --token=ZEiemkwfGZkYndzD1W39M2jG --scope=team_6XLvA0mT8Dmx240AOjTf8tRE
