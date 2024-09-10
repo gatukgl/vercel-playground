@@ -26,6 +26,6 @@ jobs:
         run: vercel build --token=ZEiemkwfGZkYndzD1W39M2jG
       - name: Deploy Project Artifacts to Vercel
         run: |
-          vercel deploy --prebuilt --token=ZEiemkwfGZkYndzD1W39M2jG --force --with-cache > deployment-url.txt
+          vercel deploy --prod --skip-domain --token=ZEiemkwfGZkYndzD1W39M2jG --force --with-cache > deployment-url.txt
           deploymentUrl=`cat deployment-url.txt`
-          vercel alias $deploymentUrl vercel-playground-qa.gatukgl.com
+          vercel alias --token=ZEiemkwfGZkYndzD1W39M2jG $deploymentUrl vercel-playground-qa.gatukgl.com
