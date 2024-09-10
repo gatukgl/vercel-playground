@@ -18,3 +18,14 @@ jobs:
           cache: npm
       - name: Debug
         run: echo ${{ github.ref }}
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=development --token=ZEiemkwfGZkYndzD1W39M2jG
+      - name: Build Project Artifacts
+        run: vercel build --token=ZEiemkwfGZkYndzD1W39M2jG
+      - name: Deploy Project Artifacts to Vercel
+        run: |
+          vercel deploy --prebuilt --token=ZEiemkwfGZkYndzD1W39M2jG --force --with-cache > deployment-url.txt
+          deploymentUrl=`cat deployment-url.txt`
+          vercel alias $deploymentUrl vercel-playground-qa.gatukgl.com
