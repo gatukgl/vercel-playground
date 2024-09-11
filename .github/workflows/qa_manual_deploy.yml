@@ -26,11 +26,7 @@ jobs:
         run: vercel build --token=ZEiemkwfGZkYndzD1W39M2jG
       - name: Deploy Project Artifacts to Vercel
         run: |
-          vercel deploy --prebuilt --token=ZEiemkwfGZkYndzD1W39M2jG --force --with-cache > deployment-url.txt
+          vercel deploy --prebuilt --token=ZEiemkwfGZkYndzD1W39M2jG --scope=team_6XLvA0mT8Dmx240AOjTf8tRE --force --with-cache > deployment-url.txt 
           deploymentUrl=`cat deployment-url.txt`
           echo $deploymentUrl
-          echo "deploymentUrl=$(cat deployment-url.txt)" >> $GITHUB_OUTPUT
-      - name: Alias deployment
-        run: |
-          vercel alias set https://vercel-playground-gatuk-jittacom-jitta1.vercel.app vercel-playground-qa.gatukgl.com --scope=team_6XLvA0mT8Dmx240AOjTf8tRE --token=ZEiemkwfGZkYndzD1W39M2jG
-          
+          vercel alias set $deploymentUrl vercel-playground-qa.gatukgl.com --scope=team_6XLvA0mT8Dmx240AOjTf8tRE --token=ZEiemkwfGZkYndzD1W39M2jG
