@@ -29,4 +29,8 @@ jobs:
           vercel deploy --prebuilt --token=ZEiemkwfGZkYndzD1W39M2jG --force --with-cache > deployment-url.txt
           deploymentUrl=`cat deployment-url.txt`
           echo $deploymentUrl
-          vercel alias set $deploymentUrl vercel-playground-qa.gatukgl.com --scope=team_6XLvA0mT8Dmx240AOjTf8tRE --token=ZEiemkwfGZkYndzD1W39M2jG
+          echo "deploymentUrl=$(cat deployment-url.txt)" >> $GITHUB_OUTPUT
+      - name: Alias deployment
+        run: |
+          vercel alias set https://vercel-playground-gatuk-jittacom-jitta1.vercel.app vercel-playground-qa.gatukgl.com --scope=team_6XLvA0mT8Dmx240AOjTf8tRE --token=ZEiemkwfGZkYndzD1W39M2jG
+          
