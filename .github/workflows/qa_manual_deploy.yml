@@ -29,4 +29,4 @@ jobs:
           vercel deploy --prebuilt --token=ZEiemkwfGZkYndzD1W39M2jG --force --with-cache > deployment-url.txt
           deploymentUrl=`cat deployment-url.txt`
           echo $deploymentUrl
-          vercel alias set $deploymentUrl vercel-playground-qa.gatukgl.com --scope=team_6XLvA0mT8Dmx240AOjTf8tRE
+          vercel alias set $deploymentUrl vercel-playground-qa.gatukgl.com --scope=team_6XLvA0mT8Dmx240AOjTf8tRE --token=ZEiemkwfGZkYndzD1W39M2jG
